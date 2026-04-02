@@ -34,10 +34,6 @@ body {
   cursor: none;
 }
 
-body.no-scroll {
-  overflow: hidden;
-}
-
 .cursor {
   position: fixed;
   width: 10px;
@@ -74,20 +70,23 @@ body:hover .cursor {
   opacity: 1;
 }
 
-/* --- Seamless Modal Styles --- */
+body.no-scroll {
+  overflow: hidden;
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 10, 10, 0.7);
-  backdrop-filter: blur(12px); /* Matches your glassy tabs */
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9990; 
+  z-index: 9990;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
-  cursor: none; /* Keeps your custom cursor active */
+  cursor: none;
 }
 
 .modal-overlay.show {
@@ -95,74 +94,86 @@ body:hover .cursor {
   visibility: visible;
 }
 
-.modal-content.banner {
-  background: var(--surface); /* Uses your dark surface variable */
-  border: 1px solid var(--border); /* Matches site borders */
-  border-top: 3px solid var(--accent2); /* Sleek orange accent line */
-  color: var(--text);
-  padding: 40px 48px;
-  text-align: center;
-  font-family: "DM Sans", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  line-height: 1.7;
-  position: relative;
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
   max-width: 90%;
-  width: 500px;
-  border-radius: 8px; /* Matches your event list rows */
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  width: 550px;
   transform: translateY(15px) scale(0.98);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: none;
 }
 
-.modal-overlay.show .modal-content {
+.modal-overlay.show .modal-container {
   transform: translateY(0) scale(1);
 }
 
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: none;
-  border: 1px solid transparent;
-  color: var(--muted);
-  font-size: 1.2rem;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: none; /* Custom cursor support */
-  transition: all 0.2s ease;
+.splash-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent2);
+  border-radius: 8px;
+  padding: 32px;
+  text-align: left;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  width: 100%;
 }
 
-.modal-close:hover {
-  background: var(--surface2);
-  border-color: var(--border);
+.splash-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: var(--text);
+  margin-bottom: 0; 
 }
 
-/* Subtle texture matching your original banner, but toned down for dark mode */
-.modal-content.banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(255, 255, 255, 0.015) 10px,
-    rgba(255, 255, 255, 0.015) 11px
-  );
-  pointer-events: none;
+.splash-card strong {
+  color: var(--accent2);
+  font-weight: 500;
 }
 
-.modal-content span {
-  position: relative;
-  z-index: 1;
+.splash-card .disclaimer {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.splash-card a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s;
+  cursor: none;
+}
+
+.splash-card a:hover {
+  color: var(--accent2);
+  border-bottom-color: var(--accent2);
+}
+
+.enter-btn {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 16px 40px;
+  border-radius: 100px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: all 0.3s ease;
+}
+
+.enter-btn:hover, .enter-btn:focus {
+  background: var(--text);
+  color: var(--bg);
+  transform: translateY(-2px);
+  outline: none;
 }
 
 .hero {
@@ -232,6 +243,24 @@ body:hover .cursor {
   line-height: 1.7;
   opacity: 0;
   animation: fadeUp 0.9s 0.5s ease forwards;
+}
+.hero-link-wrap {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.hero-subtitle a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s ease;
+  cursor: none;
+}
+
+.hero-subtitle a:hover {
+  color: var(--accent2);
+  border-bottom-color: var(--accent2);
 }
 .hero-dates {
   position: absolute;

@@ -433,7 +433,7 @@ body.no-scroll {
   transition:
     background 0.2s ease,
     border-color 0.2s ease;
-  cursor: none; /* Retain custom cursor */
+  cursor: none;
 }
 
 .row-main {

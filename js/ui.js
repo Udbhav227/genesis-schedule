@@ -1,11 +1,16 @@
 import { events, days, dayColors } from "./data.js";
-import { activeDay, activeFilter, activeClub, currentDate, showOnlyLive } from "./state.js";
+import {
+  activeDay,
+  activeFilter,
+  activeClub,
+  currentDate,
+  showOnlyLive,
+} from "./state.js";
 
 export function buildPanels() {
   const main = document.getElementById("main-content");
   main.innerHTML = "";
 
-  // 1. Populate Dropdown Options uniquely from data.js
   const clubSelect = document.getElementById("club-select");
   if (clubSelect && clubSelect.options.length === 1) {
     const uniqueClubs = [...new Set(events.map((e) => e.club))].sort();
@@ -63,21 +68,12 @@ export function buildPanels() {
           'title="Auto-estimated status. Might not be accurate."';
 
         if (currentDate >= eventStart && currentDate <= eventEnd) {
-          // Current time is within the 3 hour window
           statusBadge = `<span class="live-tag" ${hoverTooltip}>Live</span>`;
         } else if (currentDate > eventEnd) {
-          // Current time is strictly after the 3 hour window
           statusBadge = `<span class="ended-tag" ${hoverTooltip}>Ended</span>`;
         }
 
-        // --- TEST CODE (Always force Adakari Live and Aero Innovation Ended for testing) ---
-        if (ev.name === "Adakari") {
-          statusBadge = `<span class="live-tag" ${hoverTooltip}>Live</span>`;
-        }
-        if (ev.name === "Aero Innovation") {
-          statusBadge = `<span class="ended-tag" ${hoverTooltip}>Ended</span>`;
-        }
-        // ----------------------------------------------------------------------------------
+        const isDisabled = !ev.regLink;
 
         row.innerHTML = `
           <div class="row-main">
@@ -86,11 +82,19 @@ export function buildPanels() {
           </div>
           <div class="row-desc" title="${ev.desc}">${ev.desc}</div>
           <div class="row-loc">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
             ${ev.loc}
           </div>
           <div class="row-action">
-            <a href="#register" class="register-btn" style="--btn-col: ${col};">
+            <a 
+              href="${isDisabled ? "#" : ev.regLink}" 
+              ${isDisabled ? "" : 'target="_blank" rel="noopener noreferrer"'}
+              class="register-btn ${isDisabled ? "disabled" : ""}" 
+              style="--btn-col: ${col};"
+            >
               Register
             </a>
           </div>

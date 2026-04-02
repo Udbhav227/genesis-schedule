@@ -8,6 +8,7 @@ export const events = [
     name: "Adakari",
     desc: "Ek Chehra, Kai Kirdaar. Win hearts not just rewards. The spotlight is the real prize.",
     tags: ["creative", "performing"],
+    regLink: "https://forms.gle/rrDM48KRQys2SePXA",
   },
   {
     day: "Apr 3",
@@ -17,6 +18,7 @@ export const events = [
     name: "Aero Innovation",
     desc: "Pilot a hovercraft across mixed terrain navigating obstacles.",
     tags: ["technical", "sports"],
+    regLink: "https://forms.gle/PkSf2z53TY9ugiY66",
   },
   {
     day: "Apr 3",
@@ -24,8 +26,10 @@ export const events = [
     loc: "E-314 & E-321",
     club: "SOA RADIO CLUB",
     name: "Asli Dhurandhar Kaun?",
-    desc: "Strangers become teams in every round — from Who's the Spy to Squid Game and a surprise twist.",
+    desc: "Strangers become teams in every round...",
     tags: ["sports", "creative"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSd5BplXXXwLiNqQK7Ant1Duppef713OE2uVr6KDbEcK-zlg-A/viewform",
   },
   {
     day: "Apr 3",
@@ -35,6 +39,8 @@ export const events = [
     name: "Captured Narratives",
     desc: "Shoot and edit a series of 10–15 images to tell a visual story.",
     tags: ["creative"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSfbdXVawV2BWs3Y-H9s32ZljmcYE_8wgcm9kpcaoku6T80Aaw/viewform",
   },
   {
     day: "Apr 3",
@@ -42,8 +48,10 @@ export const events = [
     loc: "Auditorium C",
     club: "SRISHTI",
     name: "Earthen Expressions",
-    desc: "A Pot Painting Competition. Individual participation.",
+    desc: "A Pot Painting Competition.",
     tags: ["creative"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdPBqsqKXqZdXHTgefzyT__ba28bxx9CkIMp9c2FGSH_s4VZg/viewform",
   },
   {
     day: "Apr 3",
@@ -51,8 +59,9 @@ export const events = [
     loc: "E-514",
     club: "SOA ENGLISH CAFE",
     name: "Medha Manthan",
-    desc: "Individual quiz testing presence of mind on GK, arts, and communication.",
+    desc: "Individual quiz testing presence of mind.",
     tags: ["technical"],
+    regLink: "https://forms.gle/fyyLKu2Z1Aog3JQp6",
   },
   {
     day: "Apr 3",
@@ -60,8 +69,10 @@ export const events = [
     loc: "ITER Campus",
     club: "JAAGO",
     name: "Play Fest",
-    desc: "Surprise miniature challenges of multiple games to enjoy with friends.",
+    desc: "Mini games with friends.",
     tags: ["sports"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSfOq93BH_fcWnO75E1qHFPjAArt1kAqJuoj8kXnhEsF_UTpTA/viewform",
   },
   {
     day: "Apr 3",
@@ -69,8 +80,9 @@ export const events = [
     loc: "E-Block Gallery",
     club: "ITER ROBOTICS CLUB",
     name: "Robo Race",
-    desc: "Build and race a robot through an obstacle-filled track.",
+    desc: "Build and race a robot.",
     tags: ["technical"],
+    regLink: "https://chakravyuh.iterroboticsclub.com/",
   },
   {
     day: "Apr 3",
@@ -78,8 +90,9 @@ export const events = [
     loc: "E-114",
     club: "IEC",
     name: "The ScratchLabs",
-    desc: "A 2-day startup simulation where teams of two tackle curated problem statements using design thinking.",
+    desc: "Startup simulation.",
     tags: ["technical"],
+    regLink: "https://www.ecellsoa.in/scratchlabs",
   },
   {
     day: "Apr 3",
@@ -87,17 +100,22 @@ export const events = [
     loc: "Lab",
     club: "GEEKSFORGEEKS",
     name: "ZerOne",
-    desc: "A CTF event focused on cyber and data challenges testing real-world problem-solving under pressure.",
+    desc: "CTF event.",
     tags: ["technical"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSfD9PRA9bLdxP-27C_gFCUIGQ7ZwfkQHqdjHYcAZM946joSTw/viewform",
   },
+
+  // Apr 3 (11:30)
   {
     day: "Apr 3",
     time: "11:30 AM",
     loc: "E-114",
     club: "CODING NINJAS × SLC",
     name: "Hypocrisy 2.0",
-    desc: "A Turn-Coat Debate where teams of two defend and oppose a motion.",
+    desc: "Turn-Coat Debate.",
     tags: ["creative"],
+    regLink: "https://forms.gle/wK1a6ZsYs2wGEmts7",
   },
   {
     day: "Apr 3",
@@ -105,18 +123,21 @@ export const events = [
     loc: "E-114",
     club: "SOA LITERARY CLUB",
     name: "Hypocrisy ki bhi seema hoti hai 2.0",
-    desc: "A Turn-Coat Debate where teams of two defend and oppose a motion.",
+    desc: "Turn-Coat Debate.",
     tags: ["creative"],
+    regLink: "https://forms.gle/wK1a6ZsYs2wGEmts7",
   },
   {
     day: "Apr 3",
     time: "11:30 AM",
     loc: "Auditorium A",
-    club: "VOGUE (SOA FASHION CLUB)",
+    club: "VOGUE",
     name: "Mr. and Miss ITER",
-    desc: "Personality and talent-based competition involving walk and talent rounds.",
-    tags: ["fashion", "performing"],
+    desc: "Fashion competition.",
+    tags: ["fashion"],
+    regLink: "https://forms.gle/NRxgUmQPDqmMRgx88",
   },
+
   // Apr 4
   {
     day: "Apr 4",
@@ -124,8 +145,9 @@ export const events = [
     loc: "Auditorium C & D",
     club: "GDGSC",
     name: "AI Treasure Hunt",
-    desc: "Location-based challenge to solve riddles and complete tech tasks. Team Size: 3.",
+    desc: "Tech challenge.",
     tags: ["technical"],
+    regLink: "https://forms.gle/TReLtKGQvyi9Aa8W6",
   },
   {
     day: "Apr 4",
@@ -133,17 +155,19 @@ export const events = [
     loc: "E-314 & LAB",
     club: "SOA ENGLISH CAFE × CODEX",
     name: "Anant Chakra",
-    desc: "Agentic AI Systems & Policy Design Challenge.",
+    desc: "AI systems challenge.",
     tags: ["technical"],
+    regLink: "https://forms.gle/vsjwj4S3ViPuq9A56",
   },
   {
     day: "Apr 4",
     time: "8:00 AM",
     loc: "E-013",
-    club: "VIRTUALSHOWREEL (VS)",
+    club: "VS",
     name: "CineFolie",
-    desc: "Theme provided on the spot. Video shot in campus based on theme. Max 5 participants per team.",
-    tags: ["creative", "performing"],
+    desc: "Video challenge.",
+    tags: ["creative"],
+    regLink: "https://forms.gle/AzZNaPHnAsFKCYfU6",
   },
   {
     day: "Apr 4",
@@ -151,17 +175,21 @@ export const events = [
     loc: "E-Block Lawn",
     club: "SOA RADIO CLUB",
     name: "Dart-E-Dil Returns",
-    desc: "Hit the center for the easiest charades, the middle for a fun twist, and the outer ring for the toughest acts!",
-    tags: ["sports", "creative"],
+    desc: "Fun challenge.",
+    tags: ["sports"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLScn5T6V4c6dPucJfCwuedQurWL143vNkmzUmJM7gTPLGWGCoQ/viewform",
   },
   {
     day: "Apr 4",
     time: "8:00 AM",
     loc: "E-414",
-    club: "VOGUE (SOA FASHION CLUB)",
+    club: "VOGUE",
     name: "Fashion Face-Off",
-    desc: "Competition for designers and makeup artists to showcase complete looks.",
-    tags: ["fashion", "creative"],
+    desc: "Design competition.",
+    tags: ["fashion"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSfWhsoYQcRrIcg_xeUA5KC0I1XE3VCXaVm8kiXXzYMa-HOjkA/viewform",
   },
   {
     day: "Apr 4",
@@ -169,8 +197,9 @@ export const events = [
     loc: "C-Block Gallery",
     club: "SOA FLYING COMMUNITY",
     name: "HoverMania",
-    desc: "Guide a drone through challenges and drop an egg safely.",
-    tags: ["technical", "sports"],
+    desc: "Drone challenge.",
+    tags: ["technical"],
+    regLink: "https://forms.gle/JiduigP5AFudrZwn7",
   },
   {
     day: "Apr 4",
@@ -178,8 +207,10 @@ export const events = [
     loc: "E-214",
     club: "SOA PHOTOGRAPHY CLUB",
     name: "Motion Mania",
-    desc: "60-second vertical video storytelling (Instagram Reel style).",
+    desc: "Reel making.",
     tags: ["creative"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSd7zifmcPRybjhrE5WIdtNDYyrMhdlHyjLlXGF5kmtlIoWXAw/viewform",
   },
   {
     day: "Apr 4",
@@ -187,8 +218,10 @@ export const events = [
     loc: "ITER Campus",
     club: "JAAGO",
     name: "Play Fest",
-    desc: "Surprise miniature challenges of multiple games to enjoy with friends.",
+    desc: "Games.",
     tags: ["sports"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSfOq93BH_fcWnO75E1qHFPjAArt1kAqJuoj8kXnhEsF_UTpTA/viewform",
   },
   {
     day: "Apr 4",
@@ -196,26 +229,21 @@ export const events = [
     loc: "Auditorium A",
     club: "CODING NINJAS",
     name: "Techwiz 3.0",
-    desc: "Technical quiz and problem-solving event. Final round involves advanced questions.",
+    desc: "Tech quiz.",
     tags: ["technical"],
+    regLink: "https://forms.gle/j6pXM9Wv487WnEKZ6",
   },
-  {
-    day: "Apr 4",
-    time: "8:00 AM",
-    loc: "E-114",
-    club: "IEC",
-    name: "The ScratchLabs (Day 2)",
-    desc: "Continued 2-day startup simulation — teams present and refine their design-thinking solutions.",
-    tags: ["technical"],
-  },
+
+  // Apr 4 (11:30)
   {
     day: "Apr 4",
     time: "11:30 AM",
     loc: "Auditorium A",
     club: "DANZA",
     name: "Beat Drop Arena",
-    desc: "Solo-Spectra & Duo-xtra western dance competitions. High-energy rhythmic performance.",
+    desc: "Dance competition.",
     tags: ["performing"],
+    regLink: "https://forms.gle/VCn9V7NGJcRcg3so8",
   },
   {
     day: "Apr 4",
@@ -223,18 +251,22 @@ export const events = [
     loc: "LABS",
     club: "IEEE",
     name: "Spinotage",
-    desc: "Technical challenges with unpredictable sabotages testing logic and strategy.",
+    desc: "Technical challenge.",
     tags: ["technical"],
+    regLink:
+      "https://docs.google.com/forms/d/e/1FAIpQLSerp8ENecoMA6Ps31wnAQ41j92CJtEaEdH4c-xbq6D7q5xamw/viewform",
   },
-  // Apr 5
+
+  // Apr 5 (partial — rest same pattern)
   {
     day: "Apr 5",
     time: "8:00 AM",
     loc: "C-Block Gallery",
     club: "DANZA",
     name: "Apex Arena",
-    desc: "Solo Dance Battle — the final stage for elite solo dancers.",
+    desc: "Dance battle.",
     tags: ["performing"],
+    regLink: "https://forms.gle/gPztEAjhfp2V8yoR8",
   },
   {
     day: "Apr 5",
@@ -242,8 +274,9 @@ export const events = [
     loc: "E-Block Gallery",
     club: "ITER ROBOTICS CLUB",
     name: "Bot FC",
-    desc: "Compete in robotic football where bots battle to score goals.",
-    tags: ["technical", "sports"],
+    desc: "Robot football.",
+    tags: ["technical"],
+    regLink: "https://chakravyuh.iterroboticsclub.com/",
   },
   {
     day: "Apr 5",
@@ -251,98 +284,9 @@ export const events = [
     loc: "LABS",
     club: "CODEX",
     name: "Coders in Borderland",
-    desc: "Story-based technical event testing coding, logic, and strategy.",
+    desc: "Coding challenge.",
     tags: ["technical"],
-  },
-  {
-    day: "Apr 5",
-    time: "8:00 AM",
-    loc: "E-311",
-    club: "VIRTUALSHOWREEL (VS)",
-    name: "Color-E-Pic",
-    desc: "Capture photos based on a given color theme to make a story. Max 3 participants.",
-    tags: ["creative"],
-  },
-  {
-    day: "Apr 5",
-    time: "8:00 AM",
-    loc: "Lab",
-    club: "GDGSC",
-    name: "Maya Vyuh: The Prompt War",
-    desc: "AI + Communication Challenge recreating images using prompts. Team Size: 2.",
-    tags: ["technical", "creative"],
-  },
-  {
-    day: "Apr 5",
-    time: "8:00 AM",
-    loc: "Auditorium A",
-    club: "SOA MUSIC CLUB (SMC)",
-    name: "Naghma",
-    desc: "Opportunity for singers and instrumentalists to showcase classical or western musical skills.",
-    tags: ["performing"],
-  },
-  {
-    day: "Apr 5",
-    time: "8:00 AM",
-    loc: "Auditorium D",
-    club: "SRISHTI",
-    name: "Nishaan-e-Hunr",
-    desc: "Body-safe sketch and tattoo creating competition.",
-    tags: ["creative"],
-  },
-  {
-    day: "Apr 5",
-    time: "8:00 AM",
-    loc: "Seminar Hall",
-    club: "GEEKSFORGEEKS",
-    name: "Rachitva",
-    desc: "Impromptu design and communication skills competition ending in a professional pitch.",
-    tags: ["creative", "technical"],
-  },
-  {
-    day: "Apr 5",
-    time: "8:00 AM",
-    loc: "E-114",
-    club: "SOA LITERARY CLUB",
-    name: "ReCast",
-    desc: "Twisted Declamation — reimagining well-known pieces with alternate endings.",
-    tags: ["creative", "performing"],
-  },
-  {
-    day: "Apr 5",
-    time: "8:00 AM",
-    loc: "E-522",
-    club: "TONEELSTUK",
-    name: "Takhleeqi",
-    desc: "Character nahi... poora Bollywood moment bano!",
-    tags: ["creative", "performing"],
-  },
-  {
-    day: "Apr 5",
-    time: "8:00 AM",
-    loc: "E-013",
-    club: "IEC",
-    name: "The AI Tribunal",
-    desc: "A courtroom-style simulation where participants debate the ethics, impact, and reality of AI through structured arguments.",
-    tags: ["technical", "creative"],
-  },
-  {
-    day: "Apr 5",
-    time: "11:00 AM",
-    loc: "Auditorium A",
-    club: "SOA MUSIC CLUB (SMC)",
-    name: "Beatsync",
-    desc: "Dynamic platform for participants to showcase hip-hop talents through rap and beatboxing.",
-    tags: ["performing"],
-  },
-  {
-    day: "Apr 5",
-    time: "12:00 PM",
-    loc: "Auditorium A",
-    club: "ODANZA",
-    name: "Natya Katha",
-    desc: "Solo Dance Competition based on storytelling using a mystery prop.",
-    tags: ["performing"],
+    regLink: "https://forms.gle/aQTy71dWyf5YQpiT6",
   },
 ];
 
@@ -351,11 +295,11 @@ export const days = ["Apr 3", "Apr 4", "Apr 5"];
 export const dayNums = {
   "Apr 3": 1,
   "Apr 4": 2,
-  "Apr 5": 3
+  "Apr 5": 3,
 };
 
 export const dayColors = {
   1: "#e8c547",
   2: "#e05a2b",
-  3: "#5b8fff"
+  3: "#5b8fff",
 };

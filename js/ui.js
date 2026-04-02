@@ -4,6 +4,7 @@ import { activeDay, activeFilter } from "./state.js";
 export function buildPanels() {
   const main = document.getElementById("main-content");
   main.innerHTML = "";
+
   days.forEach((day, di) => {
     const dn = di + 1;
     const panel = document.createElement("div");
@@ -25,81 +26,53 @@ export function buildPanels() {
     const timeline = document.createElement("div");
     timeline.className = "timeline";
 
-    let cardIndex = 0;
     Object.entries(byTime).forEach(([time, evts]) => {
       const tg = document.createElement("div");
       tg.className = "time-group-header";
       tg.innerHTML = `<div class="time-stamp">${time}</div><div class="time-line"></div>`;
       timeline.appendChild(tg);
 
-      const grid = document.createElement("div");
-      grid.className = "cards-grid";
+      const listContainer = document.createElement("div");
+      listContainer.className = "list-container";
 
-      evts.forEach((ev, i) => {
-        cardIndex++;
-        const card = document.createElement("div");
-        card.className =
-          "event-card card-reveal" +
-          (i === 0 && cardIndex === 1 ? " featured" : "");
-        card.dataset.day = dn;
-        card.dataset.tags = ev.tags.join(",");
+      evts.forEach((ev) => {
+        const row = document.createElement("div");
+        row.className = "event-row list-reveal";
+        row.dataset.day = dn;
 
         const col = dayColors[dn];
 
-        if (i === 0 && cardIndex === 1) {
-          card.innerHTML = `
-            <div>
-              <div class="card-top">
-                <span class="club-tag">${ev.club}</span>
-              </div>
-              <div class="event-name">${ev.name}</div>
-              <div class="event-desc">${ev.desc}</div>
-              <div class="card-footer">
-                <a href="#register" class="register-link" style="color:${col}">
-                  Register
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                </a>
-              </div>
-            </div>
-            <div class="featured-right">
-              <div class="location-tag" style="justify-content:flex-end">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                ${ev.loc}
-              </div>
-            </div>
-            <div class="card-number">${String(cardIndex).padStart(2, "0")}</div>`;
-        } else {
-          card.innerHTML = `
-            <div class="card-top">
-              <span class="club-tag">${ev.club}</span>
-              <span class="location-tag">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                ${ev.loc}
-              </span>
-            </div>
-            <div class="event-name">${ev.name}</div>
-            <div class="event-desc">${ev.desc}</div>
-            <div class="card-footer">
-              <a href="#register" class="register-link">
-                Register
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-            </div>
-            <div class="card-number">${String(cardIndex).padStart(2, "0")}</div>`;
-        }
+        row.innerHTML = `
+          <div class="row-main">
+            <div class="row-name">${ev.name}</div>
+            <div class="row-club">${ev.club}</div>
+          </div>
+          <div class="row-desc" title="${ev.desc}">${ev.desc}</div>
+          <div class="row-loc">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            ${ev.loc}
+          </div>
+          <div class="row-action">
+            <a href="#register" class="register-btn" style="color: ${col}; border-color: ${col};">
+              Register
+            </a>
+          </div>
+        `;
 
-        card.addEventListener("mousemove", (e) => {
-          const r = card.getBoundingClientRect();
-          const x = ((e.clientX - r.left) / r.width) * 100;
-          const y = ((e.clientY - r.top) / r.height) * 100;
-          card.style.setProperty("--mx", x + "%");
-          card.style.setProperty("--my", y + "%");
+        // Interactive hover using the day's theme color
+        row.addEventListener("mouseenter", () => {
+          row.style.borderLeftColor = col;
+          row.style.background = "var(--surface2)";
+        });
+        row.addEventListener("mouseleave", () => {
+          row.style.borderLeftColor = "transparent";
+          row.style.background = "var(--surface)";
         });
 
-        grid.appendChild(card);
+        listContainer.appendChild(row);
       });
 
-      timeline.appendChild(grid);
+      timeline.appendChild(listContainer);
     });
 
     if (filtered.length === 0) {
@@ -110,22 +83,22 @@ export function buildPanels() {
     main.appendChild(panel);
   });
 
+  // Simple intersection observer for list reveal
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((en) => {
         if (en.isIntersecting) {
-          const el = en.target;
-          const delay = parseInt(el.dataset.delay || 0);
-          setTimeout(() => el.classList.add("visible"), delay);
-          observer.unobserve(el);
+          en.target.classList.add("visible");
+          observer.unobserve(en.target);
         }
       });
     },
-    { threshold: 0.08 },
+    { threshold: 0.1 },
   );
 
-  document.querySelectorAll(".card-reveal").forEach((el, i) => {
-    el.dataset.delay = (i % 6) * 60;
+  document.querySelectorAll(".list-reveal").forEach((el, i) => {
+    // Add a slight stagger to the row animations
+    el.style.transitionDelay = `${(i % 10) * 30}ms`;
     observer.observe(el);
   });
 }

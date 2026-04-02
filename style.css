@@ -85,7 +85,9 @@ body.no-scroll {
   z-index: 9990;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
   cursor: none;
 }
 
@@ -124,7 +126,7 @@ body.no-scroll {
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text);
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .splash-card strong {
@@ -169,7 +171,8 @@ body.no-scroll {
   transition: all 0.3s ease;
 }
 
-.enter-btn:hover, .enter-btn:focus {
+.enter-btn:hover,
+.enter-btn:focus {
   background: var(--text);
   color: var(--bg);
   transform: translateY(-2px);
@@ -376,7 +379,8 @@ body.no-scroll {
   cursor: pointer;
 }
 
-.live-tag, .ended-tag {
+.live-tag,
+.ended-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -391,7 +395,7 @@ body.no-scroll {
 }
 
 .live-tag {
-  background: rgba(34, 197, 94, 0.15); 
+  background: rgba(34, 197, 94, 0.15);
   color: #22c55e;
   border: 1px solid rgba(34, 197, 94, 0.3);
   animation: pulseLive 2s infinite;
@@ -412,9 +416,16 @@ body.no-scroll {
 }
 
 @keyframes pulseLive {
-  0% { opacity: 0.8; }
-  50% { opacity: 1; box-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
-  100% { opacity: 0.8; }
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+  }
+  100% {
+    opacity: 0.8;
+  }
 }
 .chip {
   background: none;
@@ -562,7 +573,7 @@ body.no-scroll {
 
 .register-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .register-btn.disabled {
@@ -609,7 +620,7 @@ body.no-scroll {
 }
 
 .credit {
-    font-size: 0.64rem;
+  font-size: 0.64rem;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -664,10 +675,18 @@ body.no-scroll {
 }
 
 @media (max-width: 800px) {
-  body, a, button, .chip, .tab-btn, select, .modal-overlay, .splash-card a {
+  body,
+  a,
+  button,
+  .chip,
+  .tab-btn,
+  select,
+  .modal-overlay,
+  .splash-card a {
     cursor: auto !important;
   }
-  .cursor, .cursor-ring {
+  .cursor,
+  .cursor-ring {
     display: none !important;
   }
 
@@ -683,25 +702,67 @@ body.no-scroll {
     -webkit-overflow-scrolling: touch;
   }
   .filter-chips::-webkit-scrollbar {
-    display: none;  
+    display: none;
   }
 
-  .hero { min-height: 56vh; }
-  .list-container { gap: 12px; }
+  .hero {
+    min-height: 56vh;
+  }
+  .list-container {
+    gap: 12px;
+  }
   .event-row {
     grid-template-columns: 1fr auto;
     gap: 4px 12px;
     padding: 12px 14px;
     border-radius: 6px;
   }
-  .row-main { grid-column: 1 / 2; grid-row: 1 / 2; gap: 2px; }
-  .row-name { font-size: 0.95rem; }
-  .row-club { font-size: 0.6rem; }
-  .row-action { grid-column: 2 / 3; grid-row: 1 / 3; display: flex; align-items: center; justify-content: flex-end; }
-  .register-btn { padding: 6px 12px; font-size: 0.65rem; }
-  .row-loc { grid-column: 1 / 2; grid-row: 2 / 3; font-size: 0.75rem; margin-top: 4px; }
-  .row-desc { grid-column: 1 / 3; grid-row: 3 / 4; font-size: 0.75rem; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0.8; }
-  .time-group-header { padding: 20px 0 12px; }
-  .time-stamp { font-size: 1.5rem; }
-  .tab-btn { padding: 14px 10px; font-size: 0.7rem; }
+  .row-main {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    gap: 2px;
+  }
+  .row-name {
+    font-size: 0.95rem;
+  }
+  .row-club {
+    font-size: 0.6rem;
+  }
+  .row-action {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .register-btn {
+    padding: 6px 12px;
+    font-size: 0.65rem;
+  }
+  .row-loc {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    font-size: 0.75rem;
+    margin-top: 4px;
+  }
+  .row-desc {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    font-size: 0.75rem;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.8;
+  }
+  .time-group-header {
+    padding: 20px 0 12px;
+  }
+  .time-stamp {
+    font-size: 1.5rem;
+  }
+  .tab-btn {
+    padding: 14px 10px;
+    font-size: 0.7rem;
+  }
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITER FEST — 3-Day Schedule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<div class="banner">
+  <span>🚨 ID Cards are mandatory to be worn at all times. Entry to the campus, competitions, and star night will be strictly prohibited without a valid College ID Card.</span>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-dates">
+    <div class="big-date">APR<br>3–5</div>
+    <div class="date-label">2025 · ITER Campus</div>
+  </div>
+  <div class="hero-eyebrow">ITER University · Annual Fest</div>
+  <h1 class="hero-title">ITER<br><em>Fest</em></h1>
+  <p class="hero-subtitle">Three days. Forty events. One unforgettable campus experience — from robotics to runway, beatboxing to blockchain.</p>
+</section>
+
+<nav class="tabs-bar" id="tabs">
+  <button class="tab-btn active" data-day="1">Apr 3 <span class="tab-count" id="c1"></span></button>
+  <button class="tab-btn" data-day="2">Apr 4 <span class="tab-count" id="c2"></span></button>
+  <button class="tab-btn" data-day="3">Apr 5 <span class="tab-count" id="c3"></span></button>
+</nav>
+
+<div class="filter-row" id="filter-row">
+  <button class="chip active" data-filter="all">All</button>
+  <button class="chip" data-filter="technical">Technical</button>
+  <button class="chip" data-filter="creative">Creative</button>
+  <button class="chip" data-filter="performing">Performing</button>
+  <button class="chip" data-filter="fashion">Fashion</button>
+  <button class="chip" data-filter="sports">Sports & Fun</button>
+</div>
+
+<main id="main-content"></main>
+
+<footer class="site-footer">
+  <div class="footer-title">ITER<br>FEST</div>
+  <div class="footer-note">All events subject to change · Wear your ID at all times</div>
+</footer>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

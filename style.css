@@ -26,7 +26,6 @@
     cursor: none;
   }
 
-  /* ── Custom Cursor ── */
   .cursor {
     position: fixed; width: 10px; height: 10px;
     background: var(--accent); border-radius: 50%;
@@ -44,7 +43,6 @@
   }
   body:hover .cursor { opacity: 1; }
 
-  /* ── Alert Banner ── */
   .banner {
     background: var(--accent2);
     color: #fff;
@@ -71,12 +69,11 @@
   }
   .banner span { position: relative; z-index: 1; }
 
-  /* ── Hero ── */
   .hero {
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex; flex-direction: column;
     justify-content: flex-end;
-    padding: 0 clamp(24px, 6vw, 96px) clamp(48px, 8vh, 96px);
+    padding: 4rem clamp(24px, 6vw, 96px) clamp(48px, 8vh, 96px);
     position: relative;
     overflow: hidden;
   }
@@ -95,18 +92,9 @@
     background-size: 80px 80px;
     mask-image: radial-gradient(ellipse 100% 100% at 50% 0%, black 30%, transparent 80%);
   }
-  .hero-eyebrow {
-    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s ease forwards;
-  }
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(72px, 14vw, 200px);
+    font-size: clamp(56px, 12vw, 180px);
     line-height: 0.88;
     letter-spacing: -0.02em;
     color: var(--text);

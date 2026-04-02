@@ -4,6 +4,16 @@ export function initCursor() {
 
   if (!cursor || !ring) return;
 
+  if (
+    window.innerWidth <= 800 ||
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0
+  ) {
+    cursor.style.display = "none";
+    ring.style.display = "none";
+    return;
+  }
+
   let cx = -100,
     cy = -100,
     rx = -100,

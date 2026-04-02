@@ -1,11 +1,20 @@
 import { buildPanels } from "./ui.js";
 import { initTabs, initFilters } from "./events.js";
 import { initCursor } from "./cursor.js";
+import { activeDay } from "./state.js";
 
 function init() {
   initCursor();
   initTabs();
   initFilters();
+
+  document.querySelectorAll(".tab-btn").forEach((btn) => {
+    btn.classList.remove("active");
+    if (parseInt(btn.dataset.day) === activeDay) {
+      btn.classList.add("active");
+    }
+  });
+
   buildPanels();
 }
 
@@ -22,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function openModal() {
     modal.classList.add("show");
     document.body.classList.add("no-scroll");
-
     if (closeBtn) closeBtn.focus();
   }
 
@@ -31,7 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove("no-scroll");
   }
 
-  setTimeout(openModal, 100);
+  let modalTriggered = false;
+  window.addEventListener("scroll", () => {
+    if (!modalTriggered && window.scrollY > 300) {
+      openModal();
+      modalTriggered = true;
+    }
+  });
 
   closeBtn.addEventListener("click", closeModal);
 
@@ -46,15 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
       closeModal();
       return;
     }
-
     if (e.key === "Tab") {
       if (e.shiftKey) {
         if (document.activeElement === firstTabStop) {
           e.preventDefault();
           lastTabStop.focus();
         }
-      }
-      else {
+      } else {
         if (document.activeElement === lastTabStop) {
           e.preventDefault();
           firstTabStop.focus();

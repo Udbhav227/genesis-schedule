@@ -1,9 +1,21 @@
 import { events, days, dayColors } from "./data.js";
-import { activeDay, activeFilter } from "./state.js";
+import { activeDay, activeFilter, activeClub, currentDate, showOnlyLive } from "./state.js";
 
 export function buildPanels() {
   const main = document.getElementById("main-content");
   main.innerHTML = "";
+
+  // 1. Populate Dropdown Options uniquely from data.js
+  const clubSelect = document.getElementById("club-select");
+  if (clubSelect && clubSelect.options.length === 1) {
+    const uniqueClubs = [...new Set(events.map((e) => e.club))].sort();
+    uniqueClubs.forEach((club) => {
+      const opt = document.createElement("option");
+      opt.value = club;
+      opt.textContent = club;
+      clubSelect.appendChild(opt);
+    });
+  }
 
   days.forEach((day, di) => {
     const dn = di + 1;
@@ -14,7 +26,8 @@ export function buildPanels() {
     const filtered = events.filter(
       (e) =>
         e.day === day &&
-        (activeFilter === "all" || e.tags.includes(activeFilter)),
+        (activeFilter === "all" || e.tags.includes(activeFilter)) &&
+        (activeClub === "all" || e.club === activeClub),
     );
 
     const byTime = {};
@@ -39,12 +52,36 @@ export function buildPanels() {
         const row = document.createElement("div");
         row.className = "event-row list-reveal";
         row.dataset.day = dn;
-
         const col = dayColors[dn];
+
+        const eventDateStr = `${ev.day}, 2026 ${ev.time}`;
+        const eventStart = new Date(eventDateStr);
+        const eventEnd = new Date(eventStart.getTime() + 180 * 60000);
+
+        let statusBadge = "";
+        const hoverTooltip =
+          'title="Auto-estimated status. Might not be accurate."';
+
+        if (currentDate >= eventStart && currentDate <= eventEnd) {
+          // Current time is within the 3 hour window
+          statusBadge = `<span class="live-tag" ${hoverTooltip}>Live</span>`;
+        } else if (currentDate > eventEnd) {
+          // Current time is strictly after the 3 hour window
+          statusBadge = `<span class="ended-tag" ${hoverTooltip}>Ended</span>`;
+        }
+
+        // --- TEST CODE (Always force Adakari Live and Aero Innovation Ended for testing) ---
+        if (ev.name === "Adakari") {
+          statusBadge = `<span class="live-tag" ${hoverTooltip}>Live</span>`;
+        }
+        if (ev.name === "Aero Innovation") {
+          statusBadge = `<span class="ended-tag" ${hoverTooltip}>Ended</span>`;
+        }
+        // ----------------------------------------------------------------------------------
 
         row.innerHTML = `
           <div class="row-main">
-            <div class="row-name">${ev.name}</div>
+            <div class="row-name">${ev.name} ${statusBadge}</div>
             <div class="row-club">${ev.club}</div>
           </div>
           <div class="row-desc" title="${ev.desc}">${ev.desc}</div>
@@ -53,7 +90,7 @@ export function buildPanels() {
             ${ev.loc}
           </div>
           <div class="row-action">
-            <a href="#register" class="register-btn" style="color: ${col}; border-color: ${col};">
+            <a href="#register" class="register-btn" style="--btn-col: ${col};">
               Register
             </a>
           </div>
@@ -77,7 +114,6 @@ export function buildPanels() {
     if (filtered.length === 0) {
       timeline.innerHTML = `<div style="padding:60px 0; text-align:center; color:var(--muted); font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase;">No events match this filter</div>`;
     }
-
     panel.appendChild(timeline);
     main.appendChild(panel);
   });

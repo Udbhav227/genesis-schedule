@@ -351,9 +351,70 @@ body.no-scroll {
 .filter-row {
   padding: 20px clamp(24px, 6vw, 96px);
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-chips {
+  display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  border-bottom: 1px solid var(--border);
+}
+
+.club-dropdown {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  outline: none;
+  cursor: pointer;
+}
+
+.live-tag, .ended-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-left: 12px;
+  cursor: help;
+}
+
+.live-tag {
+  background: rgba(34, 197, 94, 0.15); 
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  animation: pulseLive 2s infinite;
+}
+.live-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ended-tag {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+@keyframes pulseLive {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; box-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
+  100% { opacity: 0.8; }
 }
 .chip {
   background: none;
@@ -447,6 +508,9 @@ body.no-scroll {
   font-weight: 500;
   color: var(--text);
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .row-club {
@@ -540,6 +604,12 @@ body.no-scroll {
   margin-bottom: 2rem;
 }
 
+#live-filter-btn.active {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border-color: #22c55e;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -573,71 +643,44 @@ body.no-scroll {
 }
 
 @media (max-width: 800px) {
-  .hero {
-    min-height: 50vh;
+  body, a, button, .chip, .tab-btn, select, .modal-overlay, .splash-card a {
+    cursor: auto !important;
   }
-  .list-container {
-    gap: 12px;
+  .cursor, .cursor-ring {
+    display: none !important;
   }
+
+  .filter-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .filter-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-chips::-webkit-scrollbar {
+    display: none;  
+  }
+
+  .hero { min-height: 60vh; }
+  .list-container { gap: 12px; }
   .event-row {
     grid-template-columns: 1fr auto;
     gap: 4px 12px;
     padding: 12px 14px;
     border-radius: 6px;
   }
-
-  .row-main {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    gap: 2px;
-  }
-  .row-name {
-    font-size: 0.95rem;
-  }
-  .row-club {
-    font-size: 0.6rem;
-  }
-
-  .row-action {
-    grid-column: 2 / 3;
-    grid-row: 1 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    text-align: right;
-  }
-  .register-btn {
-    padding: 6px 12px;
-    font-size: 0.65rem;
-  }
-
-  .row-loc {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    font-size: 0.75rem;
-    margin-top: 4px;
-  }
-
-  .row-desc {
-    grid-column: 1 / 3;
-    grid-row: 3 / 4;
-    font-size: 0.75rem;
-    margin-top: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    opacity: 0.8;
-  }
-
-  .time-group-header {
-    padding: 20px 0 12px;
-  }
-  .time-stamp {
-    font-size: 1.5rem;
-  }
-
-  .tab-btn {
-    padding: 14px 10px;
-    font-size: 0.7rem;
-  }
+  .row-main { grid-column: 1 / 2; grid-row: 1 / 2; gap: 2px; }
+  .row-name { font-size: 0.95rem; }
+  .row-club { font-size: 0.6rem; }
+  .row-action { grid-column: 2 / 3; grid-row: 1 / 3; display: flex; align-items: center; justify-content: flex-end; }
+  .register-btn { padding: 6px 12px; font-size: 0.65rem; }
+  .row-loc { grid-column: 1 / 2; grid-row: 2 / 3; font-size: 0.75rem; margin-top: 4px; }
+  .row-desc { grid-column: 1 / 3; grid-row: 3 / 4; font-size: 0.75rem; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0.8; }
+  .time-group-header { padding: 20px 0 12px; }
+  .time-stamp { font-size: 1.5rem; }
+  .tab-btn { padding: 14px 10px; font-size: 0.7rem; }
 }

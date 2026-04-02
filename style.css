@@ -34,6 +34,10 @@ body {
   cursor: none;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 .cursor {
   position: fixed;
   width: 10px;
@@ -70,33 +74,93 @@ body:hover .cursor {
   opacity: 1;
 }
 
-.banner {
-  background: var(--accent2);
-  color: #fff;
-  padding: 11px 24px;
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
-  position: relative;
-  z-index: 100;
-  overflow: hidden;
+/* --- Seamless Modal Styles --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(12px); /* Matches your glassy tabs */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9990; 
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  cursor: none; /* Keeps your custom cursor active */
 }
-.banner::before {
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content.banner {
+  background: var(--surface); /* Uses your dark surface variable */
+  border: 1px solid var(--border); /* Matches site borders */
+  border-top: 3px solid var(--accent2); /* Sleek orange accent line */
+  color: var(--text);
+  padding: 40px 48px;
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  position: relative;
+  max-width: 90%;
+  width: 500px;
+  border-radius: 8px; /* Matches your event list rows */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: translateY(15px) scale(0.98);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: none;
+}
+
+.modal-overlay.show .modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: 1px solid transparent;
+  color: var(--muted);
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none; /* Custom cursor support */
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: var(--surface2);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+/* Subtle texture matching your original banner, but toned down for dark mode */
+.modal-content.banner::before {
   content: "";
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
-    90deg,
+    45deg,
     transparent,
-    transparent 60px,
-    rgba(255, 255, 255, 0.04) 60px,
-    rgba(255, 255, 255, 0.04) 61px
+    transparent 10px,
+    rgba(255, 255, 255, 0.015) 10px,
+    rgba(255, 255, 255, 0.015) 11px
   );
+  pointer-events: none;
 }
 
-.banner span {
+.modal-content span {
   position: relative;
   z-index: 1;
 }
@@ -439,6 +503,12 @@ body:hover .cursor {
   font-size: 0.72rem;
   color: var(--muted);
   letter-spacing: 0.06em;
+}
+
+.credit {
+    font-size: 0.64rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 @keyframes fadeUp {

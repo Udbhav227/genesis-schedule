@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ITER FEST — 3-Day Schedule</title>
+    <title>Genesis Schedule</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,12 +16,15 @@
     <div class="cursor" id="cursor"></div>
     <div class="cursor-ring" id="cursor-ring"></div>
 
-    <div class="banner">
-      <span
-        >🚨 ID Cards are mandatory to be worn at all times. Entry to the campus,
-        competitions, and star night will be strictly prohibited without a valid
-        College ID Card.</span
-      >
+<div class="modal-overlay" id="warning-modal">
+      <div class="modal-content banner">
+        <button class="modal-close" id="close-modal">&times;</button>
+        <span>
+          🚨 ID Cards are mandatory to be worn at all times. Entry to the campus,
+          competitions, and star night will be strictly prohibited without a valid
+          College ID Card.
+        </span>
+      </div>
     </div>
 
     <section class="hero">
@@ -63,9 +66,11 @@
     <footer class="site-footer">
       <div class="footer-title">GENESIS<br />ChAKRAVYUH</div>
       <div class="footer-note">
-        All events subject to change · Wear your ID at all times
+        Wear your ID at all times
       </div>
-    </footer>
+      
+    </footer >
+    <div class="credit footer-note">Crafted independently by Udbhav Ashish</div>
 
     <script type="module" src="./js/main.js"></script>
   </body>

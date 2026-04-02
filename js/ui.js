@@ -59,7 +59,6 @@ export function buildPanels() {
           </div>
         `;
 
-        // Interactive hover using the day's theme color
         row.addEventListener("mouseenter", () => {
           row.style.borderLeftColor = col;
           row.style.background = "var(--surface2)";
@@ -83,7 +82,6 @@ export function buildPanels() {
     main.appendChild(panel);
   });
 
-  // Simple intersection observer for list reveal
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((en) => {
@@ -97,7 +95,6 @@ export function buildPanels() {
   );
 
   document.querySelectorAll(".list-reveal").forEach((el, i) => {
-    // Add a slight stagger to the row animations
     el.style.transitionDelay = `${(i % 10) * 30}ms`;
     observer.observe(el);
   });

@@ -29,7 +29,6 @@ export function initCursor() {
 
   loop();
 
-  // 🔥 delegated hover (works for dynamic elements)
   document.addEventListener("mouseover", (e) => {
     if (e.target.closest("button, a")) {
       cursor.style.width = "18px";

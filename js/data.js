@@ -150,7 +150,7 @@ export const events = [
     "time": "11:30 AM",
     "loc": "E-114",
     "club": "SOA LITERARY CLUB",
-    "name": "Hypocrisy ki bhi seema hoti hai 2.0",
+    "name": "Hypocrisy 2.0",
     "desc": "A Turn-Coat Debate where teams of two defend and oppose a motion.",
     "tags": [
       "creative"

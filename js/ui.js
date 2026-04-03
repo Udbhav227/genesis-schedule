@@ -67,9 +67,12 @@ export function buildPanels() {
         const hoverTooltip =
           'title="Auto-estimated status. Might not be accurate."';
 
-        if (currentDate >= eventStart && currentDate <= eventEnd) {
+        if (
+          ev.isLive ||
+          (currentDate >= eventStart && currentDate <= eventEnd)
+        ) {
           statusBadge = `<span class="live-tag" ${hoverTooltip}>Live</span>`;
-        } else if (currentDate > eventEnd) {
+        } else if (currentDate > eventEnd && !ev.isLive) {
           statusBadge = `<span class="ended-tag" ${hoverTooltip}>Ended</span>`;
         }
 
